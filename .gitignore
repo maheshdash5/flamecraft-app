@@ -205,3 +205,30 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon file (can appear in folders)
+Icon
+
+# Thumbnails
+._*
+
+# System files that should never be in git
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+
+# macOS system extension directories (avoid committing drivers / system stuff)
+System/Library/Extensions/
+Library/Extensions/
+
+# If using Xcode / macOS dev tools
+*.xcuserstate
+*.xcworkspace
+DerivedData/
+
