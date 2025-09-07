@@ -1,6 +1,6 @@
 # Flask Employee REST API
 
-A simple Flask REST API to manage employees.
+A simple Flask REST API to manage employees developed for testing hpa in kubernetes.
 
 ## Setup
 
