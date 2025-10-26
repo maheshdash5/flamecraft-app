@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: krakend-config
+  namespace: krakend
+  labels:
+    app: krakend
+data:
+  krakend.json: |
+    {
+      "version": 3,
+      "name": "flamecraft-gateway",
+      "port": 8080,
+      "timeout": "10s",
+      "cache_ttl": "0s",
+      "endpoints": [
+        {
+          "endpoint": "/health",
+          "method": "GET",
+          "output_encoding": "json",
+          "backend": [
+            {
+              "host": [
+                "http://flamecraft-app-service.dev.svc.cluster.local"
+              ],
+              "url_pattern": "/health"
+            }
+          ]
+        },
+        {
+          "endpoint": "/ready",
+          "method": "GET",
+          "output_encoding": "json",
+          "backend": [
+            {
+              "host": [
+                "http://flamecraft-app-service.dev.svc.cluster.local"
+              ],
+              "url_pattern": "/ready"
+            }
+          ]
+        },
+        {
+          "endpoint": "/{uri}",
+          "method": "GET",
+          "output_encoding": "json",
+          "backend": [
+            {
+              "host": [
+                "http://flamecraft-app-service.dev.svc.cluster.local"
+              ],
+              "url_pattern": "/{uri}"
+            }
+          ]
+        }
+      ]
+    }
